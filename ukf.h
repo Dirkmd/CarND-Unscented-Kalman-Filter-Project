@@ -70,6 +70,9 @@ public:
   ///* Sigma point spreading parameter
   double lambda_;
 
+  ///* number of sigma points
+  int n_sig_;
+
   //* Measurement noise covariance matrix R
   MatrixXd R_radar_;
   MatrixXd R_laser_;
@@ -140,6 +143,11 @@ public:
    * Predicts Mean and Covariance
    */
   void PredictMeanAndCovariance(VectorXd* x_out, MatrixXd* P_out);
+
+  /**
+  * A helper method to normalize angles
+  */
+  double NormalizeAngle(double angle);
 
 };
 
